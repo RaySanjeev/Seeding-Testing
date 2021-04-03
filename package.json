@@ -1,14 +1,18 @@
 {
-  "name": "seeding-testing",
-  "version": "1.0.0",
-  "description": "SQL to MongoDB Seeding and JEST testing",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Sanjeev Ray",
-  "license": "ISC",
-  "dependencies": {
-    "mongoose": "^5.12.3"
-  }
+	"name": "seeding-testing",
+	"version": "1.0.0",
+	"description": "SQL to MongoDB Seeding and JEST testing",
+	"main": "index.js",
+	"scripts": {
+		"seed": "node seeding.js --seed",
+		"delete": "node seeding.js --delete"
+	},
+	"author": "Sanjeev Ray",
+	"license": "ISC",
+	"dependencies": {
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"mongoose": "^5.12.3",
+		"mysql2": "^2.2.5"
+	}
 }
