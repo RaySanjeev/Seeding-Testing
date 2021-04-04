@@ -5,14 +5,19 @@
 	"main": "index.js",
 	"scripts": {
 		"seed": "node seeding.js --seed",
-		"delete": "node seeding.js --delete"
+		"delete": "node seeding.js --delete",
+		"test": "jest"
 	},
 	"author": "Sanjeev Ray",
 	"license": "ISC",
 	"dependencies": {
+		"axios": "^0.21.1",
 		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
 		"mongoose": "^5.12.3",
 		"mysql2": "^2.2.5"
+	},
+	"devDependencies": {
+		"jest": "^26.6.3"
 	}
 }
