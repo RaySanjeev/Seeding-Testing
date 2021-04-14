@@ -2,13 +2,11 @@ const fs = require("fs");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 
+const connection = require("./mySQL_connection");
 const City = require("./models/cityModel");
 const Language = require("./models/languageModel");
 
 dotenv.config({ path: `${__dirname}/config.env` });
-
-const cityData = JSON.parse(fs.readFileSync(`${__dirname}/dev-data/city.json`, "utf-8"));
-const languageData = JSON.parse(fs.readFileSync(`${__dirname}/dev-data/language.json`, "utf-8"));
 
 mongoose
 	.connect(process.env.DATABASE, {
@@ -26,8 +24,13 @@ mongoose
 
 const seedData = async () => {
 	try {
-		await City.create(cityData);
-		await Language.create(languageData);
+		const cityData = await connection.promise().query("select * from city order by Population asc limit 10");
+		const languageData = await connection
+			.promise()
+			.query("select * from countrylanguage order by Percentage desc limit 10");
+
+		await City.create(cityData[0]);
+		await Language.create(languageData[0]);
 
 		console.log("Data uploaded successfully");
 	} catch (err) {

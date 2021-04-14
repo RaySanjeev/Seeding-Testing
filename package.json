@@ -6,7 +6,8 @@
 	"scripts": {
 		"seed": "node seeding.js --seed",
 		"delete": "node seeding.js --delete",
-		"test": "jest"
+		"test": "jest",
+		"start": "node server.js"
 	},
 	"author": "Sanjeev Ray",
 	"license": "ISC",
