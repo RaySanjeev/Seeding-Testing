@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const sampleFunctions = require("../testFunctions");
+const sampleFunctions = require("../testFunctions/SampleFunctions");
 
 // TEST - 1
 test("Adds two given numbers", () => {
